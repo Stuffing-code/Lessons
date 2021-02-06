@@ -27,18 +27,41 @@ class User():
         self.login_attempts = 0
 
 
-user_1 = User("Andrey", "Yarovenko", 25, "male")
-user_1.describle_user()
-user_1.greet_user()
+class Admin(User):
+    """Информация об администраторе"""
 
-user_2 = User("Alina", "Kopysova", 18, "female")
-user_2.increment_login_attempts()
-user_2.increment_login_attempts()
-user_2.increment_login_attempts()
-user_2.increment_login_attempts()
-user_2.increment_login_attempts()
-print(user_2.login_attempts)
-user_2.reset_login_attempts()
-print(user_2.login_attempts)
-user_2.increment_login_attempts()
-print(user_2.login_attempts)
+    def __init__(self, first_name, last_name, age, gender, *privileges):
+        super().__init__(first_name, last_name, age, gender)
+        self.privileges = privileges
+
+    def show_privileges(self):
+        """Список привелегий"""
+        return self.privileges
+
+
+Admin_1 = Admin(
+    "Andrey",
+    "Yarovenko",
+    27,
+    "male",
+    "diashdaskn",
+    "kasnfas;lknd"
+    )
+print(Admin_1.show_privileges())
+# Admin_1.show_privileges()
+
+# user_1 = User("Andrey", "Yarovenko", 25, "male")
+# user_1.describle_user()
+# user_1.greet_user()
+
+# user_2 = User("Alina", "Kopysova", 18, "female")
+# user_2.increment_login_attempts()
+# user_2.increment_login_attempts()
+# user_2.increment_login_attempts()
+# user_2.increment_login_attempts()
+# user_2.increment_login_attempts()
+# print(user_2.login_attempts)
+# user_2.reset_login_attempts()
+# print(user_2.login_attempts)
+# user_2.increment_login_attempts()
+# print(user_2.login_attempts)

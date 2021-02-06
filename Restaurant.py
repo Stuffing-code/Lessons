@@ -2,7 +2,7 @@ class Restaurant():
     """
     Простая модель ресторана
     """
-    
+
     def __init__(self, restaurant_name, cuisine_type):
         """Иницализирует название и тип кухни ресторана"""
         self.restaurant_name = restaurant_name
@@ -11,11 +11,12 @@ class Restaurant():
 
     def describe_restaurant(self):
         """Описание ресторана"""
-        print(f"Restaurant: {self.restaurant_name}! {self.cuisine_type} cuisine")
-    
+        print(f"Restaurant {self.restaurant_name}", end=" ")
+        print(f"{self.cuisine_type.lower()} cuisine.")
+
     def open_restaurant(self):
         """Информация о том что ресторан открыт"""
-        print(f"Restaurant {self.restaurant_name} is open")
+        print(f"Restaurant {self.restaurant_name} is open.")
 
     def set_number_served(self, value):
         """Задает количество обслуженных гостей"""
@@ -26,8 +27,26 @@ class Restaurant():
         self.number_served += value
 
 
+class IceCreamStand(Restaurant):
+    """Класс мороженого"""
+
+    def __init__(self, *flavors):
+        """Вкусы мороженого"""
+        self.flavors = flavors
+
+    def get_flavors(self):
+        """Get flavors"""
+        print("We can offer for desert: ")
+        for flavor in self.flavors:
+            print(flavor)
+
+
+IceCreamStand_1 = IceCreamStand("клубничное", "яблочное", "ванильное")
+IceCreamStand_1.get_flavors()
+
 restaurant = Restaurant("Bobo", "Azia")
 restaurant.set_number_served(5)
 print(restaurant.number_served)
 restaurant.increment_number_served(70)
 print(restaurant.number_served)
+restaurant.describe_restaurant()

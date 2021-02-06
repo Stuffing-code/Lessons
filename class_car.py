@@ -32,16 +32,43 @@ class Car():
         self.odometer_reading += miles
 
 
+class Battery():
+    """Простоя модель аккумулятора эклетромобиля."""
+
+    def __init__(self, battery_size=75):
+        """Иницициализируем атрибуты аккумулятора."""
+        self.battery_size = battery_size
+
+    def describle_battery(self):
+        """Выводит информацию о мощности аккумулятора."""
+        print(f"This car has a {self.battery_size}-kwh battery")
+
+    def get_range(self):
+        """Выводит прилизительный запас хода для аккумулятора"""
+        if self.battery_size == 75:
+            range = 260
+        elif self.battery_size == 100:
+            range = 315
+
+        print(f"This car can go about {range} miles on a full chardge.")
+
+
 class ElectricCar(Car):
     """Представляет аспекты машины, специфические для электромобилей."""
 
     def __init__(self, make, model, year):
-        """инициализирует атрибуты класса-родителя."""
+        """
+        Инициализирует атрибуты класса-родителя.
+        Затем инициализируем атрибуты, спецефические для электромобиля.
+        """
         super().__init__(make, model, year)
+        self.battery = Battery()
 
 
 my_tesla = ElectricCar("tesla", "model s", 2019)
 print(my_tesla.get_descriptive_name())
+my_tesla.battery.describle_battery()
+my_tesla.battery.get_range()
 
 # my_used_car = Car('subaru', 'outback', 2015)
 # print(my_used_car.get_descriptive_name())
