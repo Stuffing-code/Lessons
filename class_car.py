@@ -26,15 +26,26 @@ class Car():
             self.odometer_reading = mileage
         else:
             print("You can't roll back an odometer!")
-    
+
     def increment_odometer(self, miles):
         """Увеличение показания одометра с заданным приращеванием."""
         self.odometer_reading += miles
 
 
-my_used_car = Car('subaru', 'outback', 2015)
-print(my_used_car.get_descriptive_name())
-my_used_car.update_odometer(23_500)
-my_used_car.read_odometer()
-my_used_car.increment_odometer(100)
-my_used_car.read_odometer()
+class ElectricCar(Car):
+    """Представляет аспекты машины, специфические для электромобилей."""
+
+    def __init__(self, make, model, year):
+        """инициализирует атрибуты класса-родителя."""
+        super().__init__(make, model, year)
+
+
+my_tesla = ElectricCar("tesla", "model s", 2019)
+print(my_tesla.get_descriptive_name())
+
+# my_used_car = Car('subaru', 'outback', 2015)
+# print(my_used_car.get_descriptive_name())
+# my_used_car.update_odometer(23_500)
+# my_used_car.read_odometer()
+# my_used_car.increment_odometer(100)
+# my_used_car.read_odometer()
