@@ -6,6 +6,7 @@ class User():
         self.last_name = last_name
         self.age = age
         self.gender = gender
+        self.login_attempts = 0
 
     def describle_user(self):
         """Представление пользователя"""
@@ -17,7 +18,27 @@ class User():
         """Вывод персонального приветсвия пользователя"""
         print(f"Hellow {self.first_name.title()} {self.last_name}")
 
+    def increment_login_attempts(self):
+        """Увеличивает попытки входа на 1"""
+        self.login_attempts += 1
+
+    def reset_login_attempts(self):
+        """Обнуляет счетчик попыток входа"""
+        self.login_attempts = 0
+
 
 user_1 = User("Andrey", "Yarovenko", 25, "male")
 user_1.describle_user()
 user_1.greet_user()
+
+user_2 = User("Alina", "Kopysova", 18, "female")
+user_2.increment_login_attempts()
+user_2.increment_login_attempts()
+user_2.increment_login_attempts()
+user_2.increment_login_attempts()
+user_2.increment_login_attempts()
+print(user_2.login_attempts)
+user_2.reset_login_attempts()
+print(user_2.login_attempts)
+user_2.increment_login_attempts()
+print(user_2.login_attempts)
