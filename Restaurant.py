@@ -41,7 +41,7 @@ class IceCreamStand(Restaurant):
             print(flavor)
 
 
-IceCreamStand_1 = IceCreamStand("клубничное", "яблочное", "ванильное")
+IceCreamStand_1 = IceCreamStand("dsada", "dsadas", "dasdas")
 IceCreamStand_1.get_flavors()
 
 restaurant = Restaurant("Bobo", "Azia")
