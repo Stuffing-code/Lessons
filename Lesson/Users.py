@@ -34,7 +34,7 @@ class Privileges:
 
     def show_privileges(self):
         """Список привелегий"""
-        return self.privileges
+        print(self.privileges)
 
 
 class Admin(User):
@@ -45,11 +45,3 @@ class Admin(User):
         self.privileges = Privileges()
 
 
-Admin_1 = Admin(
-    "Andrey",
-    "Yarovenko",
-    27,
-    "male",
-    )
-
-print(Admin_1.privileges.show_privileges())
