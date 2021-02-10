@@ -1,3 +1,6 @@
+"""Класс информации о пользователе."""
+
+
 class User:
     """Информация о пользователе"""
 
@@ -25,23 +28,3 @@ class User:
     def reset_login_attempts(self):
         """Обнуляет счетчик попыток входа"""
         self.login_attempts = 0
-
-
-class Privileges:
-    """Класс привелегий"""
-    def __init__(self):
-        self.privileges = ("create", "delete", "save")
-
-    def show_privileges(self):
-        """Список привелегий"""
-        print(self.privileges)
-
-
-class Admin(User):
-    """Информация об администраторе"""
-
-    def __init__(self, first_name, last_name, age, gender):
-        super().__init__(first_name, last_name, age, gender)
-        self.privileges = Privileges()
-
-
