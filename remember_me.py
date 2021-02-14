@@ -22,11 +22,19 @@ def get_new_username():
     return username
 
 
-def greet_users():
+def greet_user():
     """Приветствует пользователя по имени."""
     username = get_stored_username()
     if username:
-        print(f"Welcome back, {username}!")
+        confirm_name = input(f"Your name {username}? Enter yes or no ")
+        if confirm_name.lower() == "yes":
+            print(f"Welcome back, {username}!")
+        else:
+            username = get_new_username()
+            print(f"We'll remember you when you come back, {username}!")
     else:
         username = get_new_username()
-        print(f"We'll remember you when you come beak, {username}!")
+        print(f"We'll remember you when you come back, {username}!")
+
+
+greet_user()
